@@ -1,0 +1,6 @@
+1. Write a program to print First Name of employees which joined in year 2023. 
+2. Write a program to print count, min, max, sum, and the average of salary of all employees in a perticular department. 
+3. Write a program to print sorted list of employees by firstName in all departments except HR department. 
+4. Write a program to increment salary of employees in perticular department by 10%.
+5. Write a program using stream to print 50 odd numbers after 100. 
+6. Write a program to create comma seperated list of First names of employees order by dateOfbirth.  

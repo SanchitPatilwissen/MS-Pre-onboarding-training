@@ -1,0 +1,70 @@
+Section 1: Threads & Runnable
+1. Write a program to create and start a Thread using a Runnable. The thread should print numbers 1 to 5 with a 1-second delay.
+
+2. Use a lambda expression to start a thread that prints the current thread name 5 times.
+
+3. Create 3 threads to simulate file download tasks. Use join() to wait for all downloads to complete before printing "All files downloaded".
+
+Section 2: Callable, Future & ThreadPool
+4. Create a Callable<Integer> that calculates the sum of numbers from 1 to 100. Submit it using ExecutorService and get the result using Future.
+
+5. Use Executors.newFixedThreadPool(3) to submit 10 tasks that print the thread name and sleep for 2 seconds. Observe thread reuse.
+
+6. Use Executors.newCachedThreadPool() for the same task above. Compare number of threads created.
+
+7. Create a custom ThreadPoolExecutor with:
+
+Core pool size: 2
+
+Max pool size: 4
+
+Queue size: 2
+Submit 6 tasks and print task start/end time. Handle rejected tasks with a custom RejectedExecutionHandler.
+
+Section 3: ExecutorCompletionService & Shutdown
+8. Use ExecutorCompletionService to submit 5 Callable tasks that return a string (e.g., file name). Print the results as soon as each completes.
+
+9. Demonstrate the difference between shutdown() and shutdownNow() on an ExecutorService.
+
+10. Submit a task after shutting down the executor. Catch and handle RejectedExecutionException.
+
+Section 4: Locks & Synchronization
+11. Write a program with two threads incrementing a shared counter without synchronization. Observe inconsistent output.
+
+12. Modify the program to use synchronized to make it thread-safe.
+
+13. Rewrite the same logic using ReentrantLock. Demonstrate use of lock() and unlock() inside try-finally.
+
+14. Create a program where:
+
+One thread writes to a shared list
+
+Multiple threads read from it
+Use ReadWriteLock (ReentrantReadWriteLock) to ensure readers don't block each other, but writer gets exclusive access.
+
+
+Section 5: Concurrency Utilities
+15. Use a CountDownLatch to ensure that 3 service threads complete their initialization before allowing the main thread to continue.
+
+16. Simulate a scenario using Semaphore where only 2 threads can access a critical section at a time.
+
+17. Use CyclicBarrier to simulate 3 players readying for a game. Start game only when all are ready.
+
+Section 6: Thread-safe Collections & Atomic Variables
+18. Create a multithreaded program that modifies an ArrayList without synchronization. Show ConcurrentModificationException.
+
+19. Fix the above using:
+
+Collections.synchronizedList(...)
+
+CopyOnWriteArrayList
+Compare performance for read-heavy scenarios.
+
+20. Use AtomicInteger instead of int for thread-safe counter increment across 1000 threads.
+
+Parallelism & Performance
+21. Use IntStream.range(1, 101).parallel() to process data in parallel. Print current thread name in each iteration.
+
+22. Benchmark the time taken to process 100 tasks using:
+    * ExecutorService
+    * parallelStream()

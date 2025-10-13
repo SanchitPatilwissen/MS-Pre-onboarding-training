@@ -1,0 +1,5 @@
+Suppose we get request from the user to fetch the exchange rate from source to target currency.
+In this case we need to fetc exchange rate 5 diff exchanges/sources and create a JSON where key=source, value=ExchangeRate.
+Call 5 APIs in Asynch way.
+1. get fastest response
+2. Aggregation of all 5 responses

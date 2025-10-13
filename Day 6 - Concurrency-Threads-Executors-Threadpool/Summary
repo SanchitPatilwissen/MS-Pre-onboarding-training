@@ -1,0 +1,25 @@
+Single - threaded --> Only 1 thread in a process runs all the time(parent/main thread only)
+
+multi-threaded --> multiple threads run in a java process(originating from main thread)
+
+Different Thread states :
+1) Ready --> When thread is ready to be executed. Multiple threads are in ready state.
+2) Running --> When thread is picked up by processor. Only 1 thread is running at any particular instant
+3) Blocked --> When thread is waiting for IO / resources.
+4) Waiting --> t1.wait(). t1.notice() to release the thread from waiting state.
+5) Timed Waiting --> Thread.sleep(value)
+6) Start --> When t1.start() occurs
+7) Stop/Terminated --> When t1.interrupt() is executed. t1.stop() is deprecated since it terminates the thread abruptly without giving it a chance to cleanup.
+
+Priority of threads : It can be assigned. Low priority thread is called daemon thread(background thread)
+
+Methods to implement Synchronization problem : Only 1 thread can access the resource.
+Using Locks :
+1) Intrinsic Locks : Synchronized blocks/methods. Locks applied on object/static class. By default reentrant lock is used.
+2) Extrinsic Locks : In java.util.concurrent.locks
+   (1) reentrant locks
+   (2) readWrite locks
+   (3) stamped locks
+   Used lock.lock() and lock.unlock()
+
+Manual Creation and management of threads is a tedious task. With creation and termination of threads taking a lot of time. Everytime creating and terminating a thread for each task is an ineffective solution. Therefore, we create threadpools of newFixedThreadPool, newCachedThreadPool(variable size both in Executors interface) and custom threadpool using ThreadPoolExecutor to run tasks. 

@@ -23,3 +23,50 @@ Using Locks :
    Used lock.lock() and lock.unlock()
 
 Manual Creation and management of threads is a tedious task. With creation and termination of threads taking a lot of time. Everytime creating and terminating a thread for each task is an ineffective solution. Therefore, we create threadpools of newFixedThreadPool, newCachedThreadPool(variable size both in Executors interface) and custom threadpool using ThreadPoolExecutor to run tasks. 
+
+So instead of creating and terminating threads for each task, we reuse the threads from the threadpool to execute multiple tasks.
+
+Callable interface is similar to Runnable interface but it can return a value and can throw checked exceptions. It has call() method instead of run() method.
+
+We have following things in java.util.concurrent package:
+1) Executor interface : It has execute() method to execute Runnable tasks.
+2) ExecutorService interface : It extends Executor interface. It has submit() method to execute Callable
+tasks. It has shutdown() and shutdownNow() methods to terminate the threadpool.
+3) ScheduledExecutorService interface : It extends ExecutorService interface. It has schedule() method to execute tasks after a delay or periodically.
+4) Executors class : It has factory methods to create different types of threadpools. It implements ExecutorService and ScheduledExecutorService interfaces.
+   (1) newFixedThreadPool(int n) : Creates a threadpool with fixed number of threads.
+
+         ExecutorService executor = Executors.newFixedThreadPool(5); 
+
+   (2) newCachedThreadPool() : Creates a threadpool with variable number of threads.
+
+         ExecutorService executor = Executors.newCachedThreadPool(); // creates threads as needed and kills threads which are idle for 60 seconds.
+
+   (3) newSingleThreadExecutor() : Creates a threadpool with single thread.
+
+         ExecutorService executor = Executors.newSingleThreadExecutor();
+
+   (4) newScheduledThreadPool(int n) : Creates a threadpool with fixed number of threads to schedule tasks.
+
+         ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
+
+   (5) custom threadpool using ThreadPoolExecutor class.
+
+         ThreadPoolExecutor executor = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, TimeUnit, workQueue);
+
+         executor.execute(Runnable task);
+         executor.submit(Callable task); 
+         both return Future object.
+
+         we have executor.supplyAsync() method to execute tasks asynchronously. Returns CompletableFuture object.
+         executor.supply() method is used to execute tasks synchronously. Returns CompletableFuture object.
+
+Future interface : It represents the result of an asynchronous computation. It has get() method to retrieve the result of the computation. It has isDone() method to check if the computation is complete. It has cancel() method to cancel the computation.
+CompletableFuture class : It implements Future interface. It has methods to chain multiple asynchronous computations. It has thenApply(), thenAccept(), thenRun() methods to chain multiple computations. It has exceptionally() method to handle exceptions. It has allOf() and anyOf() methods to combine multiple CompletableFuture objects.
+
+Latches : 
+1) CountDownLatch : It is used to wait for a set of operations to complete. It has countDown() method to decrement the count. It has await() method to wait for the count to reach zero.
+2) CyclicBarrier : It is used to wait for a set of threads to reach a common barrier point. It has await() method to wait for the threads to reach the barrier point. It can be reused after the barrier is reached.
+3) Semaphore : It is used to control access to a shared resource. It has acquire() method to acquire a permit. It has release() method to release a permit.
+
+Thread safe collections in java.util.concurrent package

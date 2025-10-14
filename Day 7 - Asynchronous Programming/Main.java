@@ -23,7 +23,7 @@ public class Main {
                             .thenApply(result -> (Map.Entry<String, Double>) result);
 
             Map.Entry<String, Double> fastestApi = fastestApiFuture.get(); // block to get result
-            System.out.println("\n✅ Fastest API is: " + fastestApi.getKey() + " = " + fastestApi.getValue());
+            System.out.println("\nFastest API is: " + fastestApi.getKey() + " = " + fastestApi.getValue());
 
             CompletableFuture<Map<String, Double>> aggregateFuture = CompletableFuture
                     .allOf(futures)
@@ -37,8 +37,8 @@ public class Main {
                     });
 
             Map<String, Double> aggregateOutput = aggregateFuture.get(); // block to get result
-            System.out.println("\n📊 Aggregate exchange rates:");
-            aggregateOutput.forEach((key, value) -> System.out.println("🔹 " + key + " = " + value));
+            System.out.println("\nAggregate exchange rates:");
+            aggregateOutput.forEach((key, value) -> System.out.println("key " + key + " = " + value));
 
             executor.shutdown();
         } catch (Exception e) {

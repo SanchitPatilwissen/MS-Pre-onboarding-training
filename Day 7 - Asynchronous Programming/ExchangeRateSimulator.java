@@ -4,11 +4,11 @@ import java.util.concurrent.*;
 public class ExchangeRateSimulator {
 
     private final Map<String, Integer> sourceDelays = Map.of(
-            "source1", 500,
-            "source2", 800,
-            "source3", 300,
-            "source4", 700,
-            "source5", 600
+            "source1", 5000,
+            "source2", 8000,
+            "source3", 3000,
+            "source4", 7000,
+            "source5", 6000
     );
 
     public Map.Entry<String, Double> simulateApiCall(String source){

@@ -1,0 +1,27 @@
+1. Fork the repository of the project --> Forked ChatGpt and named it ChatGpt - Forked in my repo.
+2. Clone it using gitBash / sourceTree --> Cloned the forked repo using cli.
+3. Create your branch and checkout the branch in intellij --> created sanchit-branch
+4. Do your changes and commit the changes to the local branch --> Made changes to README.md file
+5. Push the changes to the Remote branch --> Pushed
+6. Create the Pull Request the merge the changes from remote branch to the repository --> PR raised from the UI
+7. If there are multiple commits in the PR squash the related commits into the single Commit and push the changes to the PR --> Done
+
+Things learned about :
+1) Basic git commands
+ - git add
+ - git commit -m ""
+ - git push origin branch_name
+ - git pull origin branch_name
+ - git merge branch_name
+ - git branch
+ - git checkout
+ - git log
+ - git stash
+ - git stash pop
+ - git revert commit_id
+ - git reset --soft commit_id
+ - git reset --hard commit_id
+ - git cherrypick commit_id
+ - git rebase branch_name
+
+2) Gradle --> It is a build script made up of groovy/kotlin language. Similar to maven but maven contains pom.xml and maven is more convenient.

@@ -1,0 +1,35 @@
+Maven/Gradle --> Build tool used to compile, test and package the project with all the dependencies in jar/war files.
+
+Spring --> Framework which helps users to work on business requirements rather than non-functional code.
+
+It minimizes boiler plate java code.
+
+It helps us achieve dependency injection which helps us to build very decoupled systems
+
+Spring helps us to create and maintain objects.
+
+IOC container --> Inversion Of Control. Responsible to create, configure and manage objects.
+
+We can configure in 3 ways :
+1) XML --> Constructor injection and setter injection
+2) Annotation
+3) Java configuration class
+
+2 IOC containers : 
+1) Bean Factory (Basic version)
+2) Application Context (Extends Bean Factory)
+
+1) Without Spring 
+
+public static void main(){
+    Vehicle vehicle = new Car(); // If we want to change it to Bus then we are making change in the code. Imagine if the code is big. Thats why we use IOC.
+    System.out.println(vehicle.mileage);
+}
+
+2) With Spring (Using XML as configuration file in src.main.resources. Create bean(obj) in config.xml)
+
+public static void main(){
+    ClassPathXMLApplicationContext context = new ClassPathXMLApplicationContext("config.xml");
+    Vehicle vehicle = context.getBean(id_of_bean, Vehicle.class);
+    System.out.println(vehicle.mileage);
+}

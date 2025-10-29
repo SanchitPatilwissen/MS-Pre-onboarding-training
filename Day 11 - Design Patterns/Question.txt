@@ -1,0 +1,10 @@
+Suppose for given list of Integers we need to do sum depending on user choice and return it.
+Options - 
+1. All 
+2. Odd 
+3. Even 
+
+Consider Design Principles and Patterns while coding.
+
+Code should be extensible for any other option -
+4. Prime

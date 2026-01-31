@@ -68,6 +68,3 @@ Parallelism & Performance
 22. Benchmark the time taken to process 100 tasks using:
     * ExecutorService
     * parallelStream()
-
-
-Hello My name is Sanchit and I am an engineer.
